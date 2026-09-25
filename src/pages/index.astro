@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = 'My Astro Blog';
-const description = 'The perfect starter for your perfect blog.';
+const title = 'TokenHungry | Tech Blog';
+const description = 'Systems, AI, and everything I\'m building and learning along the way.';
 const permalink = Astro.site.href;
 ---
 
@@ -10,7 +10,8 @@ const permalink = Astro.site.href;
   <div class="home-container">
     <div class="home-copy">
       <h1>Welcome to my tech blog</h1>
-      <p><a href="/blog">Check out my blog posts.</a></p>
+      <p class="tagline">Systems, AI, and everything I'm building and learning along the way.</p>
+      <a class="cta" href="/blog">Read the blog →</a>
     </div>
 
     <div class="hero-image-container">
@@ -21,17 +22,17 @@ const permalink = Astro.site.href;
 
 <style>
   .home-container {
-    align-items: center;
     display: flex;
     flex: 1;
+    flex-direction: column;
     justify-content: center;
     margin: 2em 0;
     min-height: 400px;
   }
 
   .home-copy {
-    flex: 1;
-    padding: 0 1em;
+    text-align: center;
+    padding: 0 1em 1.5em;
   }
 
   .home-copy h1 {
@@ -44,47 +45,46 @@ const permalink = Astro.site.href;
     font-size: 1.4em;
   }
 
+  .tagline {
+    color: var(--text-secondary);
+    max-width: 42ch;
+    margin: 0 auto 1.5em;
+    line-height: 1.5;
+  }
+
+  .cta {
+    display: inline-block;
+    font-family: var(--font-family-sans);
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--primary-color);
+    border: 1.5px solid var(--primary-color);
+    padding: 0.65em 1.5em;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .cta:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+
   .hero-image-container {
-    margin: 0 1em;
     text-align: center;
-  }
-
-  .hero-image-container picture {
-    display: block;
-    min-height: 250px;
-  }
-
-  .caption {
-    font-size: .8em;
-    font-style: italic;
-    text-align: left;
   }
 
   .hero-image {
     width: 100%;
-    max-width: 550px;
-    margin-bottom: 1em;
+    max-width: 1200px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    margin: 0 auto;
   }
 
   @media (max-width: 1200px) {
-    p {
+    .home-copy p {
       font-size: 1.2em;
-    }
-
-    .hero-image {
-      max-width: 400px;
-    }
-  }
-
-  @media (max-width: 800px) {
-    .home-container {
-      flex-direction: column;
-    }
-
-    .home-copy {
-      flex: 0;
-      padding-bottom: 2em;
-      text-align: center;
     }
   }
 </style>
